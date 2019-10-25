@@ -10,6 +10,7 @@ export function usePokemonActions () {
       dispatch({type: FETCH_POKEMON_START});
 
       axios
+         // .get("https://pokeapi.co/api/v2/pokemon")
          .get("https://reqres.in/api/pokemon")
          .then(response => {
             dispatch({type: FETCH_POKEMON_DONE, payload: response.data});
