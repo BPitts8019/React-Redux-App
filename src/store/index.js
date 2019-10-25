@@ -1,5 +1,5 @@
 import {createStore, applyMiddleware, combineReducers} from "redux";
-import thunk from "redux-thunk";
+import thunk from "redux-thunk"; //allows our action creators to be HOFs
 //import reducers
 
 const rootReducer = combineReducers({
