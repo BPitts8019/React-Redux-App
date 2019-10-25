@@ -1,7 +1,7 @@
 import {FETCH_POKEMON_START, FETCH_POKEMON_DONE, FETCH_POKEMON_ERROR} from "./actionTypes";
 
 const initialState = {
-   pokemon: [],
+   list: [],
    isloading: false,
    error: null
 };
@@ -11,20 +11,20 @@ export default function (state = initialState, action) {
       case FETCH_POKEMON_START:
          return {
             ...state,
-            pokemon: [],
+            list: [],
             isloading: true,
             error: null
          }
       case FETCH_POKEMON_DONE:
          return {
             ...state,
-            pokemon: action.payload,
+            list: action.payload,
             isloading: false
          }
       case FETCH_POKEMON_ERROR:
          return {
             ...state,
-            pokemon: [],
+            list: [],
             isloading: false,
             error: action.payload
          }

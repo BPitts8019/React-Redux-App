@@ -1,22 +1,36 @@
 import React from 'react';
+import {connect} from "react-redux";
 import './App.css';
 
-import {ActionsContext, ActionsProvider} from "../contexts/ActionsContext";
+//context
+import {ActionsProvider} from "../contexts/ActionsContext";
 import {usePokemonActions} from "../store/pokemon/useActions";
 
-// import PokemonList from "./PokemonList";
+//components
+import PokemonList from "./PokemonList";
 
-function App() {
+function App ({pokeData}) {
    const actions = usePokemonActions();
 
    return (
       <div className="App">
-         <header className="App-header">This is an App!!</header>
-         <ActionsProvider value={actions}>
-            <p>Display some pokemon</p>
+         <p>
+            {
+               (pokeData.length > 0)
+               ?  <p>{pokeData.length}</p> 
+               :  <p>There is no data</p>
+            }
+         </p>
+         <ActionsProvider value={{actions}}>
+            <PokemonList />
          </ActionsProvider>
       </div>
    );
 }
 
-export default App;
+const mapStateToProps = state => {
+   return {
+      pokeData: state.pokemon.list
+   };
+};
+export default connect(mapStateToProps)(App);

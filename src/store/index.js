@@ -1,10 +1,10 @@
 import {createStore, applyMiddleware, combineReducers} from "redux";
 import thunk from "redux-thunk"; //allows our action creators to be HOFs
-import pokemonReducer from "./pokemon/reducer";
+import pokemon from "./pokemon/reducer";
 
 //add multiple reducers here
 const rootReducer = combineReducers({
-   pokemonReducer
+   pokemon
 });
 
 //an array of all the middleware in the application
